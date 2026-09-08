@@ -8,6 +8,8 @@ A simple to-do list app built with plain HTML, CSS and JavaScript.
 - Mark tasks as complete
 - Delete tasks
 - Tasks are saved automatically in the browser (localStorage)
+- Edit task text
+- Clear completed tasks
 
 ## Tech used
 
