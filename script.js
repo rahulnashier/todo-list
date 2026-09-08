@@ -45,6 +45,9 @@ function render() {
                         saveTodos(todos);
                         render();
             });
+          label.addEventListener("dblclick", () => {
+                  editTodo(label, index);
+          });
 
                     const removeBtn = document.createElement("button");
             removeBtn.type = "button";
@@ -72,6 +75,34 @@ function render() {
   }
 
   clearCompletedBtn.hidden = completedCount === 0;
+}
+
+function editTodo(label, index) {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.value = todos[index].text;
+        input.className = "edit-input";
+        label.replaceWith(input);
+        input.focus();
+        input.select();
+        
+        function commit() {
+                const newText = input.value.trim();
+                if (newText) {
+                        todos[index].text = newText;
+                }
+                saveTodos(todos);
+                render();
+        }
+        
+        input.addEventListener("blur", commit);
+        input.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                        input.blur();
+                } else if (event.key === "Escape") {
+                        render();
+                }
+        });
 }
 
 form.addEventListener("submit", (event) => {
