@@ -103,6 +103,7 @@ function editTodo(label, index) {
                 if (event.key === "Enter") {
                         input.blur();
                 } else if (event.key === "Escape") {
+                        input.removeEventListener("blur", commit);
                         render();
                 }
         });
