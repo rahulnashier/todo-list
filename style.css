@@ -87,3 +87,11 @@ h1 {
     text-align: center;
     color: #9a9ca6;
 }
+
+
+#task-count {
+      text-align: center;
+      color: #6b6f7a;
+      font-size: 0.9rem;
+      margin: 0 0 12px;
+}
