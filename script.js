@@ -45,10 +45,12 @@ function render() {
                         saveTodos(todos);
                         render();
             });
-          label.addEventListener("dblclick", () => {
+          const editBtn = document.createElement("button");
+          editBtn.type = "button";
+          editBtn.textContent = "Edit";
+          editBtn.addEventListener("click", () => {
                   editTodo(label, index);
           });
-
                     const removeBtn = document.createElement("button");
             removeBtn.type = "button";
             removeBtn.textContent = "Delete";
@@ -60,6 +62,7 @@ function render() {
 
                     item.appendChild(label);
             item.appendChild(removeBtn);
+          item.appendChild(editBtn);
             list.appendChild(item);
   });
 
