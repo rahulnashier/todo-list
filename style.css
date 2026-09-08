@@ -111,3 +111,7 @@ h1 {
 #clear-completed:hover {
       background: #f0f2fa;
 }
+
+#clear-completed[hidden] {
+      display: none;
+}
