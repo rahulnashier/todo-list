@@ -105,6 +105,8 @@ h1 {
       margin: 0 0 12px;
 }
 
+.filters { display: flex; justify-content: center; gap: 8px; margin: 0 0 16px; } .filter-btn { padding: 4px 12px; border: 1px solid #ccced6; border-radius: 999px; background: #fff; color: #6b6f7a; font-size: 0.85rem; cursor: pointer; } .filter-btn:hover { background: #f0f2fa; } .filter-btn.active { background: #3a5bc7; border-color: #3a5bc7; color: #fff; }
+
 #clear-completed {
       display: block;
       margin: 0 auto 16px;
