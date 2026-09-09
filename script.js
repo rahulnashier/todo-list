@@ -6,6 +6,7 @@ const list = document.getElementById("todo-list");
 const emptyMessage = document.getElementById("empty-message");
 const taskCount = document.getElementById("task-count");
 const clearCompletedBtn = document.getElementById("clear-completed");
+const filterButtons = document.querySelectorAll(".filter-btn");
 
 function loadTodos() {
         const raw = localStorage.getItem(STORAGE_KEY);
@@ -29,10 +30,12 @@ function saveTodos(todos) {
 
 let todos = loadTodos();
 
+let currentFilter = "all";
 function render() {
         list.innerHTML = "";
 
   todos.forEach((todo, index) => {
+          if ((currentFilter === "active" && todo.done) || (currentFilter === "completed" && !todo.done)) return;
             const item = document.createElement("li");
             if (todo.done) {
                         item.classList.add("completed");
@@ -65,8 +68,9 @@ function render() {
           item.appendChild(editBtn);
             list.appendChild(item);
   });
-
-  emptyMessage.style.display = todos.length === 0 ? "block" : "none";
+const visibleCount = list.children.length;
+        emptyMessage.textContent = todos.length === 0 ? "No tasks yet. Add one above." : "No tasks match this filter.";
+  emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
 
   const remaining = todos.filter((todo) => !todo.done).length;
         const completedCount = todos.length - remaining;
@@ -125,5 +129,7 @@ clearCompletedBtn.addEventListener("click", () => {
         saveTodos(todos);
         render();
 });
+
+filterButtons.forEach((btn) => { btn.addEventListener("click", () => { currentFilter = btn.dataset.filter; filterButtons.forEach((b) => b.classList.toggle("active", b === btn)); render(); }); });
 
 render();
