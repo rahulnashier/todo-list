@@ -126,3 +126,4 @@ h1 {
 #clear-completed[hidden] {
       display: none;
 }
+#toggle-all { display: block; margin: 0 auto 12px; padding: 6px 14px; border: 1px solid #ccced6; border-radius: 6px; background: #fff; color: #3a5bc7; font-size: 0.85rem; cursor: pointer; } #toggle-all:hover { background: #f0f2fa; } #toggle-all[hidden] { display: none; }
