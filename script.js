@@ -133,8 +133,9 @@ clearCompletedBtn.addEventListener("click", () => {
         render();
 });
 
-filterButtons.forEach((btn) => { btn.addEventListener("click", () => { currentFilter = btn.dataset.filter; filterButtons.forEach((b) => b.classList.toggle("active", b === btn)); render(); }); });
+filterButtons.forEach((btn) => { btn.addEventListener("click", () => { currentFilter = btn.dataset.filter; filterButtons.forEach((b) => { b.classList.toggle("active", b === btn); b.setAttribute("aria-pressed", b === btn); }); render(); }); });
 
 toggleAllBtn.addEventListener("click", () => { const shouldComplete = !todos.every((t) => t.done); todos.forEach((t) => { t.done = shouldComplete; }); saveTodos(todos); render(); });
 
+filterButtons.forEach((b) => b.setAttribute("aria-pressed", b.classList.contains("active")));
 render();
