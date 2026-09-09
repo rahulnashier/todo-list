@@ -7,6 +7,7 @@ const emptyMessage = document.getElementById("empty-message");
 const taskCount = document.getElementById("task-count");
 const clearCompletedBtn = document.getElementById("clear-completed");
 const filterButtons = document.querySelectorAll(".filter-btn");
+const toggleAllBtn = document.getElementById("toggle-all");
 
 function loadTodos() {
         const raw = localStorage.getItem(STORAGE_KEY);
@@ -82,6 +83,8 @@ const visibleCount = list.children.length;
   }
 
   clearCompletedBtn.hidden = completedCount === 0;
+        toggleAllBtn.hidden = todos.length === 0;
+        toggleAllBtn.textContent = todos.length > 0 && todos.every((t) => t.done) ? "Mark all active" : "Mark all complete";
 }
 
 function editTodo(label, index) {
@@ -131,5 +134,7 @@ clearCompletedBtn.addEventListener("click", () => {
 });
 
 filterButtons.forEach((btn) => { btn.addEventListener("click", () => { currentFilter = btn.dataset.filter; filterButtons.forEach((b) => b.classList.toggle("active", b === btn)); render(); }); });
+
+toggleAllBtn.addEventListener("click", () => { const shouldComplete = !todos.every((t) => t.done); todos.forEach((t) => { t.done = shouldComplete; }); saveTodos(todos); render(); });
 
 render();
