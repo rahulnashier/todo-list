@@ -9,6 +9,9 @@ All notable changes to this project are documented in this file.
 - Persisted the active filter between visits
 - Added a dark mode toggle, saved between visits
 - Added a search box to filter tasks by text
+- Added keyboard shortcuts: "/" to focus search, Escape to clear it
+- Added unit tests for the pluralize helper (test.html)
+- Added a subtle hover and completed-state transition to task items
 
 ## Accessibility
 - Added aria-pressed to filter buttons and kept it in sync on click and on load
