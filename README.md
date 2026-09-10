@@ -20,6 +20,11 @@ A simple to-do list app built with plain HTML, CSS and JavaScript.
 - Search tasks by text
 - Dark mode toggle, saved between visits
 
+## Keyboard Shortcuts
+
+- Press `/` to focus the search box
+- Press `Escape` to clear the search box
+
 ## Tech used
 
 - HTML5
