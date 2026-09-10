@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 
 ## Unreleased
 - Added .gitignore for OS, editor, and log files
+- Added CONTRIBUTING.md and package.json
+- Added focus-visible, responsive, and print styles
+- Persisted the active filter between visits
+- Added a dark mode toggle, saved between visits
+- Added a search box to filter tasks by text
 
 ## Accessibility
 - Added aria-pressed to filter buttons and kept it in sync on click and on load
