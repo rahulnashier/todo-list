@@ -1,5 +1,6 @@
 const STORAGE_KEY = "todo-items";
 const FILTER_KEY = "todo-filter";
+const THEME_KEY = "todo-theme";
 
 const form = document.getElementById("todo-form");
 const input = document.getElementById("todo-input");
@@ -9,6 +10,7 @@ const taskCount = document.getElementById("task-count");
 const clearCompletedBtn = document.getElementById("clear-completed");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const toggleAllBtn = document.getElementById("toggle-all");
+const themeToggleBtn = document.getElementById("theme-toggle");
 
 function loadTodos() {
         const raw = localStorage.getItem(STORAGE_KEY);
@@ -139,4 +141,13 @@ filterButtons.forEach((btn) => { btn.addEventListener("click", () => { currentFi
 toggleAllBtn.addEventListener("click", () => { const shouldComplete = !todos.every((t) => t.done); todos.forEach((t) => { t.done = shouldComplete; }); saveTodos(todos); render(); });
 
 filterButtons.forEach((b) => { b.classList.toggle("active", b.dataset.filter === currentFilter); b.setAttribute("aria-pressed", b.dataset.filter === currentFilter); });
+if (localStorage.getItem(THEME_KEY) === "dark") {
+        document.body.classList.add("dark-theme");
+}
+
+themeToggleBtn.addEventListener("click", () => {
+        const isDark = document.body.classList.toggle("dark-theme");
+        localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
+});
+
 render();
