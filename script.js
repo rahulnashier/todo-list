@@ -11,6 +11,7 @@ const clearCompletedBtn = document.getElementById("clear-completed");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const toggleAllBtn = document.getElementById("toggle-all");
 const themeToggleBtn = document.getElementById("theme-toggle");
+const searchInput = document.getElementById("search-input");
 
 function loadTodos() {
         const raw = localStorage.getItem(STORAGE_KEY);
@@ -35,11 +36,13 @@ function saveTodos(todos) {
 let todos = loadTodos();
 
 let currentFilter = localStorage.getItem(FILTER_KEY) || "all";
+let searchTerm = "";
+
 function render() {
         list.innerHTML = "";
 
   todos.forEach((todo, index) => {
-          if ((currentFilter === "active" && todo.done) || (currentFilter === "completed" && !todo.done)) return;
+          if ((currentFilter === "active" && todo.done) || (currentFilter === "completed" && !todo.done) || (searchTerm && !todo.text.toLowerCase().includes(searchTerm))) return;
             const item = document.createElement("li");
             if (todo.done) {
                         item.classList.add("completed");
@@ -148,6 +151,11 @@ if (localStorage.getItem(THEME_KEY) === "dark") {
 themeToggleBtn.addEventListener("click", () => {
         const isDark = document.body.classList.toggle("dark-theme");
         localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
+});
+
+searchInput.addEventListener("input", () => {
+        searchTerm = searchInput.value.trim().toLowerCase();
+        render();
 });
 
 render();
