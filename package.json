@@ -1,0 +1,12 @@
+{
+    "name": "todo-list",
+    "version": "1.0.0",
+    "description": "A simple to-do list app built with plain HTML, CSS and JavaScript.",
+    "main": "index.html",
+    "scripts": {
+          "start": "npx serve ."
+    },
+    "keywords": ["todo", "javascript", "html", "css"],
+    "author": "rahulnashier",
+    "license": "MIT"
+}
