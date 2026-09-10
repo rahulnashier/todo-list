@@ -1,4 +1,5 @@
 const STORAGE_KEY = "todo-items";
+const FILTER_KEY = "todo-filter";
 
 const form = document.getElementById("todo-form");
 const input = document.getElementById("todo-input");
@@ -31,7 +32,7 @@ function saveTodos(todos) {
 
 let todos = loadTodos();
 
-let currentFilter = "all";
+let currentFilter = localStorage.getItem(FILTER_KEY) || "all";
 function render() {
         list.innerHTML = "";
 
@@ -133,9 +134,9 @@ clearCompletedBtn.addEventListener("click", () => {
         render();
 });
 
-filterButtons.forEach((btn) => { btn.addEventListener("click", () => { currentFilter = btn.dataset.filter; filterButtons.forEach((b) => { b.classList.toggle("active", b === btn); b.setAttribute("aria-pressed", b === btn); }); render(); }); });
+filterButtons.forEach((btn) => { btn.addEventListener("click", () => { currentFilter = btn.dataset.filter; localStorage.setItem(FILTER_KEY, currentFilter); filterButtons.forEach((b) => { b.classList.toggle("active", b === btn); b.setAttribute("aria-pressed", b === btn); }); render(); }); });
 
 toggleAllBtn.addEventListener("click", () => { const shouldComplete = !todos.every((t) => t.done); todos.forEach((t) => { t.done = shouldComplete; }); saveTodos(todos); render(); });
 
-filterButtons.forEach((b) => b.setAttribute("aria-pressed", b.classList.contains("active")));
+filterButtons.forEach((b) => { b.classList.toggle("active", b.dataset.filter === currentFilter); b.setAttribute("aria-pressed", b.dataset.filter === currentFilter); });
 render();
