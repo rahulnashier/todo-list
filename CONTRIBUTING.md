@@ -12,5 +12,9 @@ Thanks for your interest in this project.
 - Test your changes in the browser before opening a pull request
 - Follow the existing code style (2-space indentation)
 
+## Running tests
+
+Open test.html in a browser to run the unit tests for the helper functions in utils.js. Results are printed on the page as PASS or FAIL.
+
 ## Reporting issues
 Open an issue describing the bug or feature request, including steps to reproduce if applicable.
