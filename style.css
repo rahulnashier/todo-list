@@ -156,3 +156,50 @@ input:focus-visible {
               display: none;
       }
 }
+
+/* Dark mode */
+body.dark-theme {
+      background: #1a1d27;
+      color: #e6e8f0;
+}
+
+body.dark-theme .container {
+      color: #e6e8f0;
+}
+
+body.dark-theme #todo-input,
+body.dark-theme .filter-btn,
+body.dark-theme #toggle-all,
+body.dark-theme #clear-completed,
+body.dark-theme #theme-toggle {
+      background: #262a38;
+      color: #e6e8f0;
+      border-color: #3a3f52;
+}
+
+body.dark-theme .filter-btn.active {
+      background: #4c5fd7;
+      border-color: #4c5fd7;
+      color: #fff;
+}
+
+body.dark-theme #empty-message,
+body.dark-theme #task-count {
+      color: #9aa0b4;
+}
+
+#theme-toggle {
+      display: block;
+      margin: 0 auto 16px;
+      padding: 6px 14px;
+      border: 1px solid #ccced6;
+      border-radius: 6px;
+      background: #fff;
+      color: #3a5bc7;
+      font-size: 0.85rem;
+      cursor: pointer;
+}
+
+#theme-toggle:hover {
+      background: #f0f2fa;
+}
