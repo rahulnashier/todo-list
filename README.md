@@ -17,6 +17,8 @@ A simple to-do list app built with plain HTML, CSS and JavaScript.
 - Clear completed tasks
 - Filter tasks by All, Active or Completed
 - Mark all tasks as complete or active with one click
+- Search tasks by text
+- Dark mode toggle, saved between visits
 
 ## Tech used
 
