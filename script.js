@@ -58,12 +58,14 @@ function render() {
           const editBtn = document.createElement("button");
           editBtn.type = "button";
           editBtn.textContent = "Edit";
+          editBtn.setAttribute("aria-label", "Edit task: " + todo.text);
           editBtn.addEventListener("click", () => {
                   editTodo(label, index);
           });
                     const removeBtn = document.createElement("button");
             removeBtn.type = "button";
             removeBtn.textContent = "Delete";
+          removeBtn.setAttribute("aria-label", "Delete task: " + todo.text);
             removeBtn.addEventListener("click", () => {
                         todos.splice(index, 1);
                         saveTodos(todos);
