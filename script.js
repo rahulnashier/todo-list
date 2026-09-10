@@ -76,7 +76,7 @@ function render() {
             list.appendChild(item);
   });
 const visibleCount = list.children.length;
-        emptyMessage.textContent = todos.length === 0 ? "No tasks yet. Add one above." : "No tasks match this filter.";
+        emptyMessage.textContent = todos.length === 0 ? "No tasks yet. Add one above." : searchTerm ? "No tasks match your search." : "No tasks match this filter.";
   emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
 
   const remaining = todos.filter((todo) => !todo.done).length;
