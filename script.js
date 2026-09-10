@@ -158,4 +158,12 @@ searchInput.addEventListener("input", () => {
         render();
 });
 
+// Press "/" to jump to the search box.
+document.addEventListener("keydown", (event) => {
+        if (event.key === "/" && document.activeElement !== searchInput && document.activeElement !== input) {
+                event.preventDefault();
+                searchInput.focus();
+        }
+});
+
 render();
