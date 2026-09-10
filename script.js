@@ -79,7 +79,7 @@ const visibleCount = list.children.length;
   if (todos.length === 0) {
             taskCount.textContent = "";
   } else {
-            taskCount.textContent = remaining + " of " + todos.length + " tasks left";
+            taskCount.textContent = remaining + " of " + todos.length + (remaining === 1 ? " task left" : " tasks left");
   }
 
   clearCompletedBtn.hidden = completedCount === 0;
