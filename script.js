@@ -158,6 +158,14 @@ searchInput.addEventListener("input", () => {
         render();
 });
 
+searchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && searchInput.value) {
+                searchInput.value = "";
+                searchTerm = "";
+                render();
+        }
+});
+
 // Press "/" to jump to the search box.
 document.addEventListener("keydown", (event) => {
         if (event.key === "/" && document.activeElement !== searchInput && document.activeElement !== input) {
