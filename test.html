@@ -19,6 +19,7 @@ results.push((pass ? "PASS" : "FAIL") + " - " + label);
 assertEqual(pluralize(1, "task left", "tasks left"), "task left", "pluralize(1) returns singular");
 assertEqual(pluralize(0, "task left", "tasks left"), "tasks left", "pluralize(0) returns plural");
 assertEqual(pluralize(5, "task left", "tasks left"), "tasks left", "pluralize(5) returns plural");
+assertEqual(pluralize(-1, "task left", "tasks left"), "tasks left", "pluralize(-1) returns plural");
 
 document.getElementById("results").textContent = results.join("\n");
 </script>
