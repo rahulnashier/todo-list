@@ -203,3 +203,14 @@ body.dark-theme #task-count {
 #theme-toggle:hover {
       background: #f0f2fa;
 }
+
+
+#search-input {
+    width: 100%;
+    margin: 12px 0;
+    padding: 8px 10px;
+    border: 1px solid #ccced6;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
